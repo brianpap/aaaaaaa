@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>paper craft</title>
+    <style media="screen">
+
+      button {
+        background-color: green;
+        font-family: sans-serif;
+      }
+      p {
+        color: blue;
+        font-family: arial;
+      }
+      div {
+        background-color:yellow;
+        width:33.3%;
+        height:100%;
+      }
+
+    </style>
+  </head>
+  <body bgcolor="red">
+    <div id="s1">
+    <p id="coin">0</p>
+    </div>
+    <div id="s2">
+    <button onclick="forge_lv_up()">forge L.V.<span id="b1s1">1</span> $<span id="b1s2">1</span></button>
+    <button onclick="sell_lv_up()">sell L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
+    <button onclick="harvest_lv_up()">harvest L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
+    <button onclick="sell()">sell for $<span id="cost">1</span></button>
+    </div>
+    <div id="s3".
+    <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span></p>
+    </div>
+  </body>
+  <script>
+    var wood = 0
+    var papercoin = 0
+    var forge_lv = 1;
+    var sell_lv = 1;
+    var harvest_lv = 1;
+    var forge_lv_up_cost = 1;
+    var sell_lv_up_cost = 1;
+    var harvest_lv_up_cost = 1;
+    function forge_lv_up() {
+      if (papercoin >= forge_lv_up_cost) {
+        forge_lv += 1;
+        papercoin -= forge_lv_up_cost
+        forge_lv_up_cost *= 2
+        document.getElementById("b1s1").innerHTML = forge_lv;
+        document.getElementById("b1s2").innerHTML = forge_lv_up_cost;
+        document.getElementById("coin").innerHTML = papercoin
+      }
+    }
+    function sell_lv_up() {
+      if (papercoin >= sell_lv_up_cost) {
+        sell_lv += 1;
+        papercoin -= sell_lv_up_cost
+        sell_lv_up_cost *= 2
+        document.getElementById("b2s1").innerHTML = sell_lv;
+        document.getElementById("b2s2").innerHTML = sell_lv_up_cost;
+        document.getElementById("coin").innerHTML = papercoin
+
+      }
+    }
+    function harvest_lv_up() {
+      if (papercoin >= harvest_lv_up_cost) {
+        harvest_lv += 1;
+        papercoin -= harvest_lv_up_cost
+        harvest_lv_up_cost *= 2
+        document.getElementById("b3s1").innerHTML = harvest_lv;
+        document.getElementById("b3s2").innerHTML = harvest_lv_up_cost;
+        document.getElementById("coin").innerHTML = papercoin
+      }
+    }
+    function sell() {
+      wood *= sell_lv
+      papercoin += wood
+      wood = 0
+      document.getElementById("coin").innerHTML = papercoin
+    }
+    setInterval(function() {
+      wood += harvest_lv
+      var i = wood * sell_lv
+      document.getElementById("cost").innerHTML = i
+    },1000)
+    function anvil1() {
+      if (papercoin >= 10000) {
+        papercoin -= 10000;
+        sell_lv += 10
+        harvest_lv += 10
+        document.getElementById("anvil").innerHTML = null;
+      }
+    }
+  </script>
+</html>
