@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,36 +14,109 @@
         color: blue;
         font-family: arial;
       }
-      div {
-        background-color:yellow;
-        width:33.3%;
-        height:100%;
+      .div {
+        background-color:black;
+        width:100%;
+        height:20%;
+        border: solid 5px white;
       }
-
+      td {
+        border: 1px solid white;
+        color: white;
+      }
+      .home {
+        display: none
+      }
     </style>
   </head>
   <body bgcolor="red">
-    <p>V.0.1.0 bada</p>
-    <div id="s1">
+    <p>V.0.1.0</p>
+    <div class="div" id="s1">
     <p id="coin">0</p>
     </div>
-    <div id="s2">
-    <button onclick="forge_lv_up()">forge L.V.<span id="b1s1">1</span> $<span id="b1s2">1</span></button>
+    <div class="div" id="s2">
+    <button id="forgid" disabled=true onclick="forge_lv_up()">forge L.V.<span id="b1s1">0</span> $<span id="b1s2">1</span></button>
     <button onclick="sell_lv_up()">sell L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
     <button onclick="harvest_lv_up()">harvest L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
     <button onclick="sell()">sell for $<span id="cost">1</span></button>
     </div>
-    <div id="s3".
-    <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span></p>
+    <div class="div" id="s3".
+     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="anvil1()">bye seed -25c</button></span></p>
+     <!-- span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> -->
     </div>
-    <svg width="100px" height="100px">
-      <polygon points="0,0 100,0 75,20 75,20 100,50 0,50 25,20 25,10 0,0" />
+    <div class="div" id="s4">
+    <svg width="100px" height="100px" viewBox="0 0 20% 20%">
+      <polygon id="Anvilsvg" fill="black" points="0,0 100,0 75,10 75,20 100,50 0,50 25,20 25,10 0,0" />
     </svg>
+    </div>
+
+      <div id="home">
+        <button id="tool_swich" onclick="plant()">swich tool</button>
+        <p id = "tool_states">plant</p>
+        <table>
+          <tr>
+            <td onclick="use('r1c1','1')" id="r1c1">#</td>
+            <td onclick="use('r1c2','2')" id="r1c2">#</td>
+            <td onclick="use('r1c3','3')" id="r1c3">#</td>
+            <td onclick="use('r1c4','4')" id="r1c4">#</td>
+            <td onclick="use('r1c5','5')" id="r1c5">#</td>
+            <td onclick="use('r1c6','6')" id="r1c6">#</td>
+            <td onclick="use('r1c7','7')" id="r1c7">#</td>
+            <td onclick="use('r1c8','8')" id="r1c8">#</td>
+            <td onclick="use('r1c9','9')" id="r1c9">#</td>
+            <td onclick="use('r1c10',10')" id="r1c10">#</td>
+          </tr>
+
+          <tr>
+            <td onclick="use('r2c1','11')" id="r11c1">#</td>
+            <td onclick="use('r2c2','12')" id="r11c2">#</td>
+            <td onclick="use('r2c2','12')" id="r11c3">#</td>
+            <td onclick="use('r2c2','12')" id="r11c4">#</td>
+            <td onclick="use('r2c2','12')"id="r11c5">#</td>
+            <td onclick="use('r2c2','12')" id="r11c6">#</td>
+            <td onclick="use('r2c2 ','12')" id="r11c7">#</td>
+            <td onclick="use('r2c2','12')" id="r11c8">#</td>
+            <td onclick="use('r2c2','12')" id="r11c9">#</td>
+            <td onclick="use('r2c2','12')" id="r11c10">#</td>
+          </tr>
+          <!-- <tr>
+            <td id="r111c1">#</td>
+            <td id="r111c2">#</td>
+            <td id="r111c3">#</td>
+            <td id="r111c4">#</td>
+            <td id="r111c5">#</td>
+            <td id="r111c6">#</td>
+            <td id="r111c7">#</td>
+            <td id="r111c8">#</td>
+            <td id="r111c9">#</td>
+            <td id="r111c10">#</td>
+          </tr>
+          <tr>
+            <td id="r1111c1">#</td>
+            <td id="r1111c2">#</td>
+            <td id="r1111c3">#</td>
+            <td id="r1111c4">#</td>
+            <td id="r1111c5">#</td>
+            <td id="r1111c6">#</td>
+            <td id="r1111c7">#</td>
+            <td id="r1111c8">#</td>
+            <td id="r1111c9">#</td>
+            <td id="r1111c10">#</td>
+          </tr> -->
+
+        </table>
+
+      </div>
+
   </body>
   <script>
+    var seeds = 1;
+    var trees = 0;
+    const stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+    let tool = "none";
     var wood = 0
     var papercoin = 0
-    var forge_lv = 1;
+    var forge_lv = 0;
     var sell_lv = 1;
     var harvest_lv = 1;
     var forge_lv_up_cost = 1;
@@ -70,7 +144,7 @@
       }
     }
     function harvest_lv_up() {
-      if (papercoin >= harvest_lv_up_cost) {
+      if (papercoin >= harvest_lv_up_cost && harvest_lv <= trees) {
         harvest_lv += 1;
         papercoin -= harvest_lv_up_cost
         harvest_lv_up_cost *= 2
@@ -81,14 +155,19 @@
     }
     function sell() {
       wood *= sell_lv
+
+      wood += forge_lv
       papercoin += wood
       wood = 0
       document.getElementById("coin").innerHTML = papercoin
     }
     setInterval(function() {
-      wood += harvest_lv
-      var i = wood * sell_lv
-      document.getElementById("cost").innerHTML = i
+
+      wood += trees
+
+
+
+      document.getElementById("cost").innerHTML = wood
     },1000)
     function anvil1() {
       if (papercoin >= 10000) {
@@ -96,7 +175,59 @@
         sell_lv += 10
         harvest_lv += 10
         document.getElementById("anvil").innerHTML = null;
+        document.getElementById("Anvilsvg").style.fill = "gray";
+        document.getElementById("forgid").disabled = false;
+
       }
     }
+    function byeseeds() {
+      if (papercoin >= 25) {
+        papercoin -= 25;
+        seeds += 1
+
+
+
+      }
+    }
+    // function clear() {
+    //   tool = "clear"
+    // }
+    function plant() {
+      if(tool == "clear"){
+        tool = "plant"
+        document.getElementById("tool_swich").innerHTML = "clear"
+        document.getElementById("tool_states").innerHTML = "plant"
+      } else {
+        tool = "clear"
+        document.getElementById("tool_swich").innerHTML = "plant"
+        document.getElementById("tool_states").innerHTML = "clear"
+      }
+    }
+    function use(id,id1) {
+      if(tool == "clear" && stats[id1] == 1) {
+        stats[id1] = 0
+        document.getElementById(id).innerHTML = " ";
+      }
+      if(stats[id1] == "0" && tool == "plant" && seeds >= 1) {
+        stats[id1] = 2
+        seeds -=1
+        document.getElementById(id).innerHTML = "@";
+        trees += 1
+        setTimeout(function(){
+          stats[id1] = 1
+          document.getElementById(id).innerHTML = "#";
+          trees -= 1;
+        },1800000)
+      }
+    }
+    function home() {
+      document.getElementById(home).style.display = "block";
+    }
+    function treed(id,id1) {
+      stats[id1] = 1
+      document.getElementById(id).innerHTML = "#";
+      trees -= 1;
+    }
+
   </script>
 </html>
