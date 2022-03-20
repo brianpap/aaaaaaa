@@ -41,7 +41,7 @@
     <button onclick="sell()">sell for $<span id="cost">1</span></button>
     </div>
     <div class="div" id="s3".
-     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="byeseeds()">bye seed -25c</button></span></p>
+     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="byeseeds()">bye seed -250c</button></span></p>
   </button></span></p>
     </div>
     <div class="div" id="s4">
@@ -208,16 +208,18 @@
         stats[id1] = 0
         document.getElementById(id).innerHTML = " ";
       }
-      if(stats[id1] == "0" && tool == "plant" && seeds >= 1) {
-        stats[id1] = 2
-        seeds -=1
-        document.getElementById(id).innerHTML = "@";
-        trees += 1
+      if(stats[id1] == "0" && tool == "plant" && seeds >= 1 && harvest_lv >= trees) {
         setTimeout(function(){
-          stats[id1] = 1
-          document.getElementById(id).innerHTML = "#";
-          trees -= 1;
-        },1800000)
+          stats[id1] = 2
+          seeds -=1
+          document.getElementById(id).innerHTML = "@";
+          trees += 1
+          setTimeout(function(){
+            stats[id1] = 1
+            document.getElementById(id).innerHTML = "#";
+            trees -= 1;
+          },1800000)
+        },30000)
       }
     }
     function home() {
