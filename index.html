@@ -181,8 +181,8 @@
       }
     }
     function byeseeds() {
-      if (papercoin >= 25) {
-        papercoin -= 25;
+      if (papercoin >= 250) {
+        papercoin -= 250;
         seeds += 1
 
 
@@ -208,7 +208,7 @@
         stats[id1] = 0
         document.getElementById(id).innerHTML = " ";
       }
-      if(stats[id1] == "0" && tool == "plant" && seeds >= 1 && harvest_lv >= trees) {
+      if(stats[id1] == "0" && tool == "plant" && seeds >= 1 ) {
         setTimeout(function(){
           stats[id1] = 2
           seeds -=1
