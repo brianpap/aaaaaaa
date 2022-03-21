@@ -30,14 +30,14 @@
     </style>
   </head>
   <body bgcolor="red">
-    <p>V.0.1.1</p>
+    <p>V.0.1.2</p>
     <div class="div" id="s1">
     <p id="coin">0</p>
     </div>
     <div class="div" id="s2">
     <button id="forgid" disabled=true onclick="forge_lv_up()">forge L.V.<span id="b1s1">0</span> $<span id="b1s2">1</span></button>
     <button onclick="sell_lv_up()">sell L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
-    <button onclick="harvest_lv_up()">harvest L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
+    <button onclick="harvest_lv_up()">popularity L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
     <button onclick="sell()">sell for $<span id="cost">1</span></button>
     </div>
     <div class="div" id="s3".
@@ -157,6 +157,7 @@
       wood *= sell_lv
 
       wood += forge_lv
+      wood *= harvest_lv
       papercoin += wood
       wood = 0
       document.getElementById("coin").innerHTML = papercoin
