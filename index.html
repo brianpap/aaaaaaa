@@ -208,7 +208,7 @@
         stats[id1] = 0
         document.getElementById(id).innerHTML = " ";
       }
-      if(stats[id1] == "0" && tool == "plant" && seeds >= 1 && trees > harvest_lv) {
+      if(stats[id1] == "0" && tool == "plant" && seeds >= 1 && trees >= harvest_lv) {
         setTimeout(function(){
           stats[id1] = 2
           seeds -=1
