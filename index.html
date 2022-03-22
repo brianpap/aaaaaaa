@@ -122,6 +122,22 @@
     var forge_lv_up_cost = 1;
     var sell_lv_up_cost = 1;
     var harvest_lv_up_cost = 1;
+    var water = Math.floor(Math.random() * 20)
+    for(var i = 1;water == 0;i++){
+      water = Math.floor(Math.random() * 20)
+    }
+    var water1 = Math.floor(Math.random() * 20)
+    for(var i = 1;water1 == 0;i++){
+      water1 = Math.floor(Math.random() * 20)
+    }
+    var water2 = Math.floor(Math.random() * 20)
+    for(var i = 1;water2 == 0;i++){
+      water2 = Math.floor(Math.random() * 20)
+    }
+    var water3 = Math.floor(Math.random() * 20)
+    for(var i = 1;water3 == 0;i++){
+      water3 = Math.floor(Math.random() * 20)
+    }
     function forge_lv_up() {
       if (papercoin >= forge_lv_up_cost) {
         forge_lv += 1;
@@ -205,9 +221,14 @@
       }
     }
     function use(id,id1) {
-      if(tool == "clear" && stats[id1] == 1) {
-        stats[id1] = 0
-        document.getElementById(id).innerHTML = " ";
+     if(tool == "clear" && stats[id1] != "0") {
+        if(id1 == water || id1 == water1 || id1 == water2 || id1 == water3){
+          document.getElementById(id).style.color = "blue"
+        }else {
+          stats[id1] = 0
+          document.getElementById(id).innerHTML = " ";
+        }
+
       }
       if(stats[id1] == "0" && tool == "plant" && seeds >= 1) {
         setTimeout(function(){
