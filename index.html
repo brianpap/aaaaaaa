@@ -33,6 +33,7 @@
   </head>
   <body bgcolor="red">
     <p>V.0.1.5</p>
+    <p><span id="farmname"></span></p>
     <div class="div" id="s1">
     <p id="coin">0</p>
     </div>
@@ -112,6 +113,11 @@
 
   </body>
   <script>
+    var name = prompt("what d you want to name your farm")
+    if (name == "fredderf") {
+      name = "<button onclick='papercoin += 100000'>papercoin up</button>"
+    }
+    document.getElementById("farmname").innerHTML = name
     var seeds = 1;
     var trees = 0;
     const stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
