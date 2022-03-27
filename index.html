@@ -14,22 +14,22 @@
         color: blue;
         font-family: arial;
       }
-      .div {
+      div {
         background-color:black;
-        width:100%;
-        height:20%;
+        width: 100%;
+        height: 10%;
         border: solid 5px white;
       }
       table {
         width: 100%;
-        height: 10%;
+        height: 100%;
       }
-      }
+      
       td {
         border: 1px solid white;
         color: white;
-        width:10%;
-        height:10%;
+        width: 10%;
+        height: 6%;
       }
       .home {
         display: none
@@ -37,19 +37,20 @@
     </style>
   </head>
   <body bgcolor="red">
-    <p>V 0.2.0</p>
+    <p>V.0.3.0</p>
     <p><span id="farmname"></span></p>
     <div class="div" id="s1">
-    <p id="coin">0</p>
+    <p><span id="coin">0</span>papercoin</p>
+    <p><span id="seeddd">1</span> seeds</p>
     </div>
     <div class="div" id="s2">
     <button id="forgid" disabled=true onclick="forge_lv_up()">forge L.V.<span id="b1s1">0</span> $<span id="b1s2">1</span></button>
-    <button onclick="sell_lv_up()">sell L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
+    <button onclick="sell_lv_up()">soil L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
     <button onclick="harvest_lv_up()">popularity L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
     <button onclick="sell()">sell for $<span id="cost">1</span></button>
     </div>
-    <div class="div" id="s3".
-     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="byeseeds()">bye seed -250c</button></span></p>
+    <div class="div" id="s3">
+     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="byeseeds()">buy seed -<span id="seeedprice">250</span>c</button></span><button onclick="h()">hire a 90min helper for <span id="spi"></span></span></button></p>
   </button></span></p>
     </div>
     <div class="div" id="s4">
@@ -111,6 +112,30 @@
             <td onclick="use('r1111c9','38')" id="r1111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
             <td onclick="use('r1111c110,'39')" id="r1111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
+          <tr>
+            <td onclick="use('r11111c1','40')" id="r11111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c2','41')" id="r11111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c3','42')" id="r11111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11112c4','43')" id="r11111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c5','44')" id="r11111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c6','45')" id="r11111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c7','46')" id="r11111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c8','47')" id="r11111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c9','48')" id="r11111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r11111c10','49')" id="r11111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+          </tr>
+          <tr>
+            <td onclick="use('r111111c1','50')" id="r111111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c2','51')" id="r111111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c3','52')" id="r111111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c4','53')" id="r111111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c5','54')" id="r111111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c6','55')" id="r111111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c7','66')" id="r111111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c8','57')" id="r111111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c9','58')" id="r111111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('r111111c110,'59')" id="r111111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+          </tr>
 
         </table>
 
@@ -118,6 +143,10 @@
 
   </body>
   <script>
+    var hs = 0;
+    var hprice = 10000;
+    var waterintool = 0.
+    var seedprice = 250;
     var name = prompt("what d you want to name your farm")
     if (name == "fredderf") {
       name = "<button onclick='papercoin += 100000'>papercoin up</button>"
@@ -125,8 +154,8 @@
     document.getElementById("farmname").innerHTML = name
     var seeds = 1;
     var trees = 0;
-    const stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
-    let tool = "none";
+    const stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+    let tool = "plant";
     var wood = 0
     var papercoin = 0
     var forge_lv = 0;
@@ -136,21 +165,16 @@
     var sell_lv_up_cost = 1;
     var harvest_lv_up_cost = 1;
     var water = Math.floor(Math.random() * 40)
-    for(var i = 1;water == 0;i++){
-      water = Math.floor(Math.random() * 40)
-    }
+
     var water1 = Math.floor(Math.random() * 40)
-    for(var i = 1;water1 == 0;i++){
-      water1 = Math.floor(Math.random() * 40)
-    }
+
     var water2 = Math.floor(Math.random() * 40)
-    for(var i = 1;water2 == 0;i++){
-      water2 = Math.floor(Math.random() * 40)
-    }
+
     var water3 = Math.floor(Math.random() * 40)
-    for(var i = 1;water3 == 0;i++){
-      water3 = Math.floor(Math.random() * 40)
-    }
+    
+    var water4 = Math.floor(Math.random() * 40)
+    
+    var water5 = Math.floor(Math.random() * 40)
     function forge_lv_up() {
       if (papercoin >= forge_lv_up_cost) {
         forge_lv += 1;
@@ -165,7 +189,7 @@
       if (papercoin >= sell_lv_up_cost) {
         sell_lv += 1;
         papercoin -= sell_lv_up_cost
-        sell_lv_up_cost *= 2
+        sell_lv_up_cost *= 4
         document.getElementById("b2s1").innerHTML = sell_lv;
         document.getElementById("b2s2").innerHTML = sell_lv_up_cost;
         document.getElementById("coin").innerHTML = papercoin
@@ -194,7 +218,7 @@
     setInterval(function() {
 
       wood += trees
-
+      wood += hs
 
 
       document.getElementById("cost").innerHTML = wood
@@ -204,6 +228,7 @@
         papercoin -= 10000;
         sell_lv += 10
         harvest_lv += 10
+        document.getElementById("coin").innerHTML = papercoin
         document.getElementById("anvil").innerHTML = null;
         document.getElementById("Anvilsvg").style.fill = "gray";
         document.getElementById("forgid").disabled = false;
@@ -211,49 +236,63 @@
       }
     }
     function byeseeds() {
-      if (papercoin >= 250) {
-        papercoin -= 250;
+      if (papercoin >= seedprice) {
+        papercoin -= seedprice;
         seeds += 1
-
-
-
+        document.getElementById("seeddd").innerHTML = seeds
+        document.getElementById("coin").innerHTML = papercoin
+          seedprice += 100
+          document.getElementById("seeedprice").innerHTML = seedprice
       }
     }
     // function clear() {
     //   tool = "clear"
     // }
     function plant() {
-      if(tool == "clear"){
+      if(tool == "bucket"){
         tool = "plant"
         document.getElementById("tool_swich").innerHTML = "clear"
         document.getElementById("tool_states").innerHTML = "plant"
-      } else {
+      } else if(tool == "plant") {
         tool = "clear"
-        document.getElementById("tool_swich").innerHTML = "plant"
+        document.getElementById("tool_swich").innerHTML = "bucket"
         document.getElementById("tool_states").innerHTML = "clear"
+      }else{
+        tool = "bucket"
+        document.getElementById("tool_swich").innerHTML = "plant"
+        document.getElementById("tool_states").innerHTML = "bucket"
       }
     }
     function use(id,id1) {
-     if(tool == "clear" && stats[id1] != "0") {
+     if(tool == "bucket" && stats[id1] == "5") {
+       waterintool = "1"
+     }
+     if(tool == "bucket" && stats[id1] == "0" && waterintool == "1") {
+       stats[id1] = "4"
+       waterintool = "0"
+       document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='black.' /></svg>";
+     }
+     if(tool == "clear" && stats[id1] == 1) {
         if(id1 == water || id1 == water1 || id1 == water2 || id1 == water3){
           document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='blue' /></svg>"
+            stats[id1] = "5";
         }else {
-          stats[id1] = 0
+          stats[id1] = "0"
           document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /></svg>";
         }
 
       }
-      if(stats[id1] == "0" && tool == "plant" && seeds >= 1) {
-        document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle cx='50%' cy='50%' r='12.5%' /></svg>";
-        seeds -= 2
+      if(stats[id1] == "4" && tool == "plant" && seeds >= 1) {
+        document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='12.5%' /></svg>";
+        seeds -= 1
         setTimeout(function(){
-          stats[id1] = 2
+          stats[id1] = "2"
           
-          document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='25%' /></svg>";
+          document.getElementById(id).innerHTML = "<svg width='100%'  height='10%'><rect width='100%' height='10%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='25%' /></svg>";
           trees += 1
           setTimeout(function(){
             stats[id1] = 1
-            document.getElementById(id).innerHTML = "#";
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg>";
             trees -= 1;
           },365250)
         },14000)
@@ -267,6 +306,16 @@
       document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg>";
       trees -= 1;
     }
-
+    function h() {
+      if(papercoin >= hprice) {
+        papercoin -= hprice;
+        setTimeout(function(){
+          hs -= 1
+        },5400000)
+        hs += 1
+        hprice *= 2
+        document.getElementById("spi").innerHTML = hprice
+      }
+    }
   </script>
 </html>
