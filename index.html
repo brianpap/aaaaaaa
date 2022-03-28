@@ -11,8 +11,9 @@
         font-family: sans-serif
       }
       p {
-        color: blue;
+        color: green;
         font-family: arial;
+        font-size: 100%;
       }
       div {
         background-color:black;
@@ -47,11 +48,11 @@
     <button id="forgid" disabled=true onclick="forge_lv_up()">forge L.V.<span id="b1s1">0</span> $<span id="b1s2">1</span></button>
     <button onclick="sell_lv_up()">soil L.V.<span id="b2s1">1</span> $<span id="b2s2">1</span></button>
     <button onclick="harvest_lv_up()">popularity L.V.<span id="b3s1">1</span> $<span id="b3s2">1</span></button>
-    <button onclick="sell()">sell for $<span id="cost">1</span></button>
+    <button onclick="sell()">sell for <span id="cost">1</span>c</button>
     </div>
     <div class="div" id="s3">
-     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 $10000</button></span> <span id="seedd"><button onclick="byeseeds()">buy seed -<span id="seeedprice">250</span>c</button></span><button onclick="h()">hire a 90min helper for <span id="spi"></span></span></button></p>
-  </button></span></p>
+     <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 10000c</button></span> <span id="seedd"><button onclick="byeseeds()">buy seed -<span id="seeedprice">250</span>c</button></span><button onclick="h()">hire a 90min helper for <span id="spi">10000</span>c</button></p>
+       </button></span></p>
     </div>
     <div class="div" id="s4">
     <svg width="100px" height="100px" viewBox="0 0 20% 20%">
