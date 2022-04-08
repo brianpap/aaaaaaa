@@ -5,7 +5,16 @@
     <meta charset="utf-8">
     <title>paper craft</title>
     <style media="screen">
- 
+      #mine {
+        display:none;
+      }
+      .stone {
+        width: 33%;
+        height: 100%;
+      }
+      .stoner {
+        height: 33%;
+      }
       button {
         background-color: green;
         font-family: sans-serif
@@ -23,9 +32,10 @@
       }
       table {
         width: 100%;
-        height: 100%;
+        height: 50%;
       }
-      
+
+
       td {
         border: 1px solid white;
         color: white;
@@ -38,7 +48,7 @@
     </style>
   </head>
   <body bgcolor="red">
-    <p>V.0.3.0</p>
+    <p>V.pre.4.0</p>
     <p><span id="farmname"></span></p>
     <div class="div" id="s1">
     <p><span id="coin">0</span>papercoin</p>
@@ -52,7 +62,7 @@
     </div>
     <div class="div" id="s3">
      <p>store:<span id="anvil"><button onclick="anvil1()">anvil sell price +10 10000c</button></span> <span id="seedd"><button onclick="byeseeds()">buy seed -<span id="seeedprice">250</span>c</button></span><button onclick="h()">hire a 90min helper for <span id="spi">10000</span>c</button></p>
-       </button></span></p>
+       </button><button onclick="newFarm()">buy new farm for 100000c</button></button></span></p>
     </div>
     <div class="div" id="s4">
     <svg width="100px" height="100px" viewBox="0 0 20% 20%">
@@ -62,100 +72,161 @@
 
       <div id="home">
         <button id="tool_swich" onclick="plant()">swich tool</button>
-        <p id = "tool_states">plant</p>
-        <table>
+        <p id = "tool_states"></p>
+        <button  onclick="gotofarm()">farm</button>
+        <button  onclick="gotomine()">mine</button>
+        <table id="farm">
+          <thead>
+            <th><button onclick="farmchangeR()">&#x2190;</button></th>
+            <th><button onclick="farmchangeL()">&#x2192;</button></th>
+          </thead>
           <tr>
-            <td onclick="use('r1c1','0')" id="r1c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c2','1')" id="r1c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c3','2')" id="r1c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c4','3')" id="r1c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c5','4')" id="r1c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c6','5')" id="r1c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c7','6')" id="r1c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c8','7')" id="r1c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td></td>
-            <td onclick="use('r1c9','8')" id="r1c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1c10','9')" id="r1c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f1','0')" id="f1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f2','1')" id="f2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f3','2')" id="f3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f4','3')" id="f4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f5','4')" id="f5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f6','5')" id="f6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f7','6')" id="f7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f8','7')" id="f8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td></td>
+            <td onclick="use('f9','8')" id="f9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f10','9')" id="f10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
 
           <tr>
-            <td onclick="use('r11c1','10')" id="r11c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c2','11')" id="r11c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c3','12')" id="r11c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c4','13')" id="r11c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c5','14')"id="r11c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c6','15')" id="r11c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c7 ','16')" id="r11c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c8','17')" id="r11c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c9','18')" id="r11c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11c10','19')" id="r11c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f11','10')" id="f11"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f12','11')" id="f12"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f13','12')" id="f13"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f14','13')" id="f14"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f15','14')"id="f15"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f16','15')" id="f16"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f17','16')" id="f17"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f18','17')" id="f18"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f19','18')" id="f19"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f20','19')" id="f20"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
           <tr>
-            <td onclick="use('r111c1','20')" id="r111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c2','21')" id="r111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c3','22')" id="r111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c4','23')" id="r111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c5','24')" id="r111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c6','25')" id="r111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c7','26')" id="r111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c8','27')" id="r111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c9','28')" id="r111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111c10','29')" id="r111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f21','20')" id="f21"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f22','21')" id="f22"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f23','22')" id="f23"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f24','23')" id="f24"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f25','24')" id="f25"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f26','25')" id="f26"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f27','26')" id="f27"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f28','27')" id="f28"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f29','28')" id="f29"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f30','29')" id="f30"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
           <tr>
-            <td onclick="use('r1111c1','30')" id="r1111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c2','31')" id="r1111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c3','32')" id="r1111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c4','33')" id="r1111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c5','34')" id="r1111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c6','35')" id="r1111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c7','36')" id="r1111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c8','37')" id="r1111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c9','38')" id="r1111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r1111c110,'39')" id="r1111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f31','30')" id="f31"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f32','31')" id="f32"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f33','32')" id="f33"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f34','33')" id="f34"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f35','34')" id="f35"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f36','35')" id="f36"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f37','36')" id="f37"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f38','37')" id="f38"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f39','38')" id="f39"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f40,'39')" id="f40"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
           <tr>
-            <td onclick="use('r11111c1','40')" id="r11111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c2','41')" id="r11111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c3','42')" id="r11111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11112c4','43')" id="r11111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c5','44')" id="r11111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c6','45')" id="r11111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c7','46')" id="r11111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c8','47')" id="r11111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c9','48')" id="r11111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r11111c10','49')" id="r11111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f41','40')" id="f41"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f42','41')" id="f42"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f43','42')" id="f43"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f44','43')" id="f44"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f45','44')" id="f45"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f46','45')" id="f46"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f47','46')" id="f47"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f48','47')" id="f48"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f49','48')" id="f49"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f50','49')" id="f50"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
           <tr>
-            <td onclick="use('r111111c1','50')" id="r111111c1"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c2','51')" id="r111111c2"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c3','52')" id="r111111c3"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c4','53')" id="r111111c4"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c5','54')" id="r111111c5"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c6','55')" id="r111111c6"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c7','66')" id="r111111c7"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c8','57')" id="r111111c8"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c9','58')" id="r111111c9"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
-            <td onclick="use('r111111c110,'59')" id="r111111c10"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f51','50')" id="f51"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f52','51')" id="f52"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f53','52')" id="f53"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f54','53')" id="f54"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f55','54')" id="f55"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f56','55')" id="f56"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f57','56')" id="f57"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f58','57')" id="f58"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f59','58')" id="f59"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f60','59')" id="f60"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+          </tr>
+          <tr>
+            <td onclick="use('f61','60')" id="f61"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f62','61')" id="f62"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f63','62')" id="f63"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f64','63')" id="f64"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f65','64')" id="f65"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f66','65')" id="f66"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f67','66')" id="f67"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f68','67')" id="f68"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f69','68')" id="f69"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f70','69')" id="f70"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+          </tr>
+          <tr>
+            <td onclick="use('f71','70')" id="f71"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f72','71')" id="f72"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f73','72')" id="f73"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f74','73')" id="f74"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f75','74')" id="f75"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f76','75')" id="f76"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f77','76')" id="f77"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f78','77')" id="f78"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f79','78')" id="f79"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
+            <td onclick="use('f80','79')" id="f80"><svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg></td>
           </tr>
 
+        </table>
+        <table id="mine">
+          <tr>
+            <td class="stone" id="m1" onclick="use('m1','1')"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+            <td class="stone" id="m2" onclick="use('m2','2')"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+            <td class="stone" id="m3" onclick="use('m3','3')"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+          </tr>
+          <tr>
+            <td class="stone" onclick="minelvchange()"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /><circle fill="white" cx="50%" cy="50%" r="50%" /></svg></td>
+            <td class="stone" id="m4" onclick="use('m4','4')"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+            <td id="m5" onclick="use('m5','5')" class="stone"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+          </tr>
+          <tr class="stoner">
+            <td id="m6" onclick="use('m6','6')" class="stone"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+            <td class="stone"id="m7" onclick="use('m7','7')"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+            <td id="m8" onclick="use('m8','8')" class="stone"><svg width="100%" height='100%'><rect width="100%" height='100%' fill='gray' /></svg></td>
+          </tr>
         </table>
 
       </div>
 
   </body>
   <script>
+  var cfarm = 0;
+    var minelv = 1
+    class minemap {
+      constructor(s1,s2,s3,s4,s5,s6,s7,s8,s9) {
+        this.map = [s1,s2,s3,s4,s5,s6,s7,s8,s9]
+      }
+    }
+    class farmland {
+      constructor() {
+        this.stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+      }
+    }
+    const map = [1];
+    map[0] = new minemap(0,0,0,0,0,0,0,0,0)
     var hs = 0;
     var hprice = 10000;
-    var waterintool = 0.
+    var waterintool = 0
     var seedprice = 250;
     var name = prompt("what d you want to name your farm")
     if (name == "fredderf") {
-      name = "<button onclick='papercoin += 100000'>papercoin up</button>"
+      name = "<button onclick='papercoin += 100000'>papercoin up</button><button onclick='newflore()'>new floor</button>"
     }
     document.getElementById("farmname").innerHTML = name
     var seeds = 1;
     var trees = 0;
-    const stats = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+    let stats1 = [new farmland];
     let tool = "plant";
     var wood = 0
     var papercoin = 0
@@ -172,10 +243,11 @@
     var water2 = Math.floor(Math.random() * 40)
 
     var water3 = Math.floor(Math.random() * 40)
-    
+
     var water4 = Math.floor(Math.random() * 40)
-    
+
     var water5 = Math.floor(Math.random() * 40)
+
     function forge_lv_up() {
       if (papercoin >= forge_lv_up_cost) {
         forge_lv += 1;
@@ -240,9 +312,11 @@
       if (papercoin >= seedprice) {
         papercoin -= seedprice;
         seeds += 1
+        var ma = Math.floor(Math.random() * 250)
+        var mar = ma + 250
         document.getElementById("seeddd").innerHTML = seeds
         document.getElementById("coin").innerHTML = papercoin
-          seedprice += 100
+          seedprice = mar
           document.getElementById("seeedprice").innerHTML = seedprice
       }
     }
@@ -250,49 +324,79 @@
     //   tool = "clear"
     // }
     function plant() {
-      if(tool == "bucket"){
+      if(tool == "pick"){
         tool = "plant"
-        document.getElementById("tool_swich").innerHTML = "clear"
+        document.getElementById("tool_swich").innerHTML = "swich to clear"
         document.getElementById("tool_states").innerHTML = "plant"
-      } else if(tool == "plant") {
+      }else if(tool == "plant") {
         tool = "clear"
-        document.getElementById("tool_swich").innerHTML = "bucket"
+        document.getElementById("tool_swich").innerHTML = "swich to bucket"
         document.getElementById("tool_states").innerHTML = "clear"
-      }else{
+      }else if(tool == "clear"){
         tool = "bucket"
-        document.getElementById("tool_swich").innerHTML = "plant"
+        document.getElementById("tool_swich").innerHTML = "swich to pickaxe"
         document.getElementById("tool_states").innerHTML = "bucket"
+      }else {
+        tool = "pick"
+        document.getElementById("tool_swich").innerHTML = "swich to plant"
+        document.getElementById("tool_states").innerHTML = "pickaxe"
       }
     }
     function use(id,id1) {
-     if(tool == "bucket" && stats[id1] == "5") {
+     if(tool == "pick") {
+        var minelvv = minelv - 1
+        if(map[minelvv].map[id1] < 19){
+          if(map[minelvv].map[id1] == 1 || map[minelvv].map[id1] == 3 || map[minelvv].map[id1] == 5 || map[minelvv].map[id1] == 7 || map[minelvv].map[id1] == 9 || map[minelvv].map[id1] == 11 || map[minelvv].map[id1] == 13 || map[minelvv].map[id1] == 15 || map[minelvv].map[id1] == 17 ){
+            wood += 1;
+            var a1 = Math.floor(Math.random() * 2)
+            if(a1 == 1){
+              map[minelvv].map[id1] += 1;
+              document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='gray' /></svg>"
+            }else {
+              map[minelvv].map[id1] += 2;
+            }
+          }else {
+            var a1 = Math.floor(Math.random() * 2)
+            if(a1 == 1){
+              map[minelvv].map[id1] += 1;
+              document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='red' /></svg>"
+            }else {
+              map[minelvv].map[id1] += 2;
+            }
+          }
+        }else {
+          document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='black' /></svg>"
+
+        }
+     }
+     if(tool == "bucket" && stats1[cfarm].stats[id1] == "5") {
        waterintool = "1"
      }
-     if(tool == "bucket" && stats[id1] == "0" && waterintool == "1") {
-       stats[id1] = "4"
+     if(tool == "bucket" && stats1[cfarm].stats[id1] == "0" && waterintool == "1") {
+       stats1[cfarm].stats[id1] = "4"
        waterintool = "0"
        document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='black.' /></svg>";
      }
-     if(tool == "clear" && stats[id1] == 1) {
+     if(tool == "clear" && stats1[cfarm].stats[id1] == 1) {
         if(id1 == water || id1 == water1 || id1 == water2 || id1 == water3){
           document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='blue' /></svg>"
-            stats[id1] = "5";
+            stats1[cfarm].stats[id1] = "5";
         }else {
-          stats[id1] = "0"
+          stats1[cfarm].stats[id1] = "0"
           document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /></svg>";
         }
 
       }
-      if(stats[id1] == "4" && tool == "plant" && seeds >= 1) {
+      if(stats1[cfarm].stats[id1] == "4" && tool == "plant" && seeds >= 1) {
         document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='12.5%' /></svg>";
         seeds -= 1
         setTimeout(function(){
-          stats[id1] = "2"
-          
+          stats1[cfarm].stats[id1] = "2"
+
           document.getElementById(id).innerHTML = "<svg width='100%'  height='10%'><rect width='100%' height='10%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='25%' /></svg>";
           trees += 1
           setTimeout(function(){
-            stats[id1] = 1
+            stats1[cfarm].stats[id1] = 1
             document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='brown' /></svg>";
             trees -= 1;
           },365250)
@@ -318,5 +422,122 @@
         document.getElementById("spi").innerHTML = hprice
       }
     }
+    function newflore(){
+      var newlvv = map.length
+
+      var a1 = Math.floor(Math.random() * 20)
+      var a2 = Math.floor(Math.random() * 20)
+      var a3 = Math.floor(Math.random() * 20)
+      var a4 = Math.floor(Math.random() * 20)
+      var a5 = Math.floor(Math.random() * 20)
+      var a6 = Math.floor(Math.random() * 20)
+      var a7 = Math.floor(Math.random() * 20)
+      var a8 = Math.floor(Math.random() * 20)
+      var a9 = Math.floor(Math.random() * 20)
+      map[newlvv] = new minemap(a1,a2,a3,a4,a5,a6,a7,a8,a9)
+
+    }
+    function minelvchange() {
+      var minelvv = minelv - 1
+      if(minelv == map.length) {
+        newflore()
+      }
+        minelv += 1;
+        for(var id1 = 1; id1 < 9; id1++){
+          var id = "m" + id1
+          if(map[minelvv].map[id1] != 19){
+            if(map[minelvv].map[id1] == 1 | map[minelvv].map[id1] == 3 | map[minelvv].map[id1] == 5 | map[minelvv].map[id1] == 7 | map[minelvv].map[id1] == 9 | map[minelvv].map[id1] == 11 | map[minelvv].map[id1] == 13 | map[minelvv].map[id1] == 15 | map[minelvv].map[id1] == 17 ){
+
+              document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='red' /></svg>"
+            }else {
+
+              document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='gray' /></svg>"
+            }
+          }else {
+
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='black' /></svg>"
+
+          }
+
+        }
+      // if(minelv == "25600000000"){
+        // pickaxelv = "2"
+      // }
+    }
+    function farmchangeR() {
+      let s11 = stats1.length - 1
+      if(cfarm != s11){
+
+
+
+        cfarm += 1
+        for(let id1 = 0; id1 < 80; id1++){
+          var id11 = id1 + "1"
+          const id = "f" + id11
+          if(stats1[cfarm].stats[id1] == 1){
+
+
+            document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='brown' /></svg>"
+
+          }else if(stats1[cfarm].stats[id1] == 0) {
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /></svg>"
+
+          }else if(stats1[cfarm].stats[id1] == 5){
+
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='blue' /></svg>"
+
+          }else if(stats1[cfarm].stats[id1] == 4) {
+           document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='12.5%' /></svg>"
+          }else if(stats1[cfarm].stats[id1] == 2) {
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='10%'><rect width='100%' height='10%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='25%' /></svg>"
+          }
+        }
+      }
+    }
+
+    function farmchangeL() {
+      if(cfarm != 0){
+
+
+        cfarm -= 1
+        for(let id1 = 0; id1 < 80; id1++){
+          var id11 = id1 + 1
+          const id = "f" + id11
+          if(stats1[cfarm].stats[id1] == 1){
+
+
+            document.getElementById(id).innerHTML = "<svg width='100%' height='100%'><rect width='100%' height='100%' fill='brown' /></svg>"
+
+          }else if(stats1[cfarm].stats[id1] == 0){
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /></svg>"
+
+          }else if(stats1[cfarm].stats == 5){
+
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='blue' /></svg>"
+
+          }else if(stats1[cfarm].stats[id1] == 4) {
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='100%'><rect width='100%' height='100%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='12.5%' /></svg>"
+          }else if(stats1[cfarm].stats[id1] == 2) {
+            document.getElementById(id).innerHTML = "<svg width='100%'  height='10%'><rect width='100%' height='10%' fill='green' /><circle fill='brown' cx='50%' cy='50%' r='25%' /></svg>"
+          }
+        }
+      }
+    }
+    function gotofarm(){
+      document.getElementById("farm").style.display = "block";
+      document.getElementById("mine").style.display = "none";
+    }
+    function gotomine(){
+      document.getElementById("mine").style.display = "block";
+      document.getElementById("farm").style.display = "none";
+    }
+    function newFarm() {
+      if(papercoin >= 100000){
+        papercoin -= 100000
+        stats1[stats1.length] = new farmland()
+     }
+    }
+
+
   </script>
 </html>
